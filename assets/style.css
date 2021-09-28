@@ -1,0 +1,59 @@
+a:link{
+    text-decoration: none;
+    background-color: cornsilk;
+
+}
+
+header{
+    width: 100vw;
+    height: 20vh;
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+
+
+}
+
+header a{
+    float: left;
+    padding-left: 10vh;
+}
+
+.container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+main{
+    background-color: burlywood;
+    height: 80vh;
+    display: flex;
+}
+
+
+
+main h1{
+    display: inline-block;
+    width: 100%;
+    font-size: 300%;
+    text-align: center;
+    background-color: cornflowerblue;
+
+}
+
+main p{
+    display: inline-block;
+    background-color: coral;
+    font-size: 150%;
+    text-align: center;
+    width: 100%;
+}
+
+main a{
+    display: inline-block;
+    font-size: 200%;
+    
+}
