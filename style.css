@@ -1,7 +1,18 @@
+*{
+
+    font-family: monospace;
+}
+
 a:link{
     text-decoration: none;
-    background-color: cornsilk;
+    /* background-color: cornsilk; */
 
+}
+
+a:hover{
+    font-size: 210%;
+    text-shadow: 5px 5px 10px rgb(0, 0, 0), -5px -5px 10px cornsilk;
+    transition: 1s;
 }
 
 header{
@@ -9,6 +20,7 @@ header{
     height: 20vh;
     background-color: blanchedalmond;
     display: flex;
+    position: relative;
     align-items: center;
 
 
@@ -17,6 +29,15 @@ header{
 header a{
     float: left;
     padding-left: 10vh;
+    font-size: 200%;
+}
+
+#timer{
+    font-size: 200%;
+    position: absolute;
+    right:10%;
+    
+
 }
 
 .container{
@@ -41,16 +62,17 @@ main h1{
     width: 100%;
     font-size: 300%;
     text-align: center;
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
 
 }
 
 main h3{
     display: inline-block;
-    background-color: coral;
+    /* background-color: coral; */
     font-size: 150%;
     text-align: center;
     width: 100%;
+    line-height: 150%;
 }
 
 main a{
@@ -63,7 +85,7 @@ main article{
     display: inline-block;
     width: 100%;
     text-align: center;
-    border: lightgoldenrodyellow solid 5px;
+    /* border: lightgoldenrodyellow solid 5px; */
     font-size: 150%;
 }
 
@@ -75,14 +97,12 @@ main article{
 main section{
     display: flex;
     min-width: 600px;
-    /* border: darkblue solid 10px; */
     flex-wrap: wrap;
     height: 50%;
 
 
 }
 .choice-container{
-    /* display: inline-block; */
     display: flex;
     width: 100%;
     text-align: center;

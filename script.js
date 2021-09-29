@@ -9,24 +9,25 @@ var choiceEvent2 = document.getElementById("choice-container2")
 var choiceEvent3 = document.getElementById("choice-container3")
 var choiceEvent4 = document.getElementById("choice-container4")
 var resultText = document.getElementById("result")
+var timeText = document.getElementById("timer")
 
 var questionArray = [
     {
-        question: "Q0",
-        choice1: "a",
-        choice2: "b",
-        choice3: "c",
-        choice4: "d",
-        answer: "a",
+        question: "What does HTML stand for?",
+        choice1: "Hyperlinks and Text Make-up Language",
+        choice2: "Hyper Text Markup Language",
+        choice3: "How To Make Lasagna",
+        choice4: "Hyper Tension Machine Learning",
+        answer: "Hyper Text Markup Language",
     },
 
     {
-        question: "Q1",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 2,
+        question: "Which method combines two strings and returns a new string?",
+        choice1: "append()",
+        choice2: "attach()",
+        choice3: "join()",
+        choice4: "concat()",
+        answer: "concat()",
     },
 
     {
@@ -83,6 +84,23 @@ var questionArray = [
         answer: 4,
     },
 
+    {
+        question: "Q8",
+        choice1: 1,
+        choice2: 2,
+        choice3: 3,
+        choice4: 4,
+        answer: 4,
+    },
+
+    {
+        question: "Q9",
+        choice1: 1,
+        choice2: 2,
+        choice3: 3,
+        choice4: 4,
+        answer: 4,
+    },
 
 ]
 function startGame () {
@@ -95,6 +113,23 @@ function startGame () {
     scoreText.innerText = "Score: "+score
 
     var indexQ = 0
+    var remainTime = 60
+
+    function timer() {
+        setInterval(function () {
+
+            if (remainTime>0){
+            remainTime = remainTime-1
+            timeText.innerText = "Time Left: " + remainTime +"s"
+            }
+
+            else{
+                checkFinish()
+            }
+        }, 1000)
+    }
+
+    timer()
 
     function newQuestion() {
         // Generate random question from pool
@@ -115,8 +150,8 @@ function startGame () {
 
     function checkFinish() {
         
-        if (questionPool.length == 0) {
-            localStorage.setItem("Score", score)
+        if (questionPool.length == 0 || remainTime==0) {
+            localStorage.setItem("recentScore", score)
             return window.location.assign("form.html")
             }
 
