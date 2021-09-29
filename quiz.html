@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets/reset.css">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <a href="./highscore.html">
+        <a href="highscore.html">
         View Highscores
         </a>
 
@@ -20,29 +20,34 @@
         <article>
             <p id="question">Question</p>
 
-            <p id="score">0</p>
+            <p id="score">Score: 0</p>
         </article>
 
         <section>
-            <div class="choice-container">
-                <h4>A:</h4><h5>Choice A</h5>
+            <div class="choice-container" id="choice-container1">
+                <h4>A:</h4><h5 id="choice1"></h5>
             </div>
 
-            <div class="choice-container">
-                <h4>B:</h4><h5>Choice B</h5>
+            <div class="choice-container" id="choice-container2">
+                <h4>B:</h4><h5 id="choice2"></h5>
             </div>
 
-            <div class="choice-container">
-                <h4>C:</h4><h5>Choice C</h5>
+            <div class="choice-container" id="choice-container3">
+                <h4>C:</h4><h5 id="choice3"></h5>
             </div>
 
-            <div class="choice-container">
-                <h4>D:</h4><h5>Choice D</h5>
+            <div class="choice-container" id="choice-container4">
+                <h4>D:</h4><h5 id="choice4"></h5>
             </div>
 
         </section>
+        
+        <aside>
+            <p id="result"></p>
+
+        </aside>
 
     </main>
-
+<script src="script.js"></script>
 </body>
 </html>
