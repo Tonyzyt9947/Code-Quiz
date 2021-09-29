@@ -1,3 +1,4 @@
+// Select variables
 var questionText = document.getElementById("question")
 var scoreText = document.getElementById("score")
 var choiceText1 = document.getElementById("choice1")
@@ -11,6 +12,7 @@ var choiceEvent4 = document.getElementById("choice-container4")
 var resultText = document.getElementById("result")
 var timeText = document.getElementById("timer")
 
+// Question Bank
 var questionArray = [
     {
         question: "What does HTML stand for?",
@@ -31,78 +33,71 @@ var questionArray = [
     },
 
     {
-        question: "Q2",
-        choice1: "f",
-        choice2: "k",
-        choice3: "j",
-        choice4: "l",
-        answer: "j",
+        question: "Which of these is not a flex-container property?",
+        choice1: "align-items",
+        choice2: "align-content",
+        choice3: "text-align",
+        choice4: "flex-wrap",
+        answer: "text-align",
     },
 
     {
-        question: "Q3",
-        choice1: "dd",
-        choice2: "ff",
-        choice3: "ee",
-        choice4: "rr",
-        answer: "rr",
+        question: "From inside to outside, the correct order is:",
+        choice1: "content, margin, border, padding",
+        choice2: "margin, padding, border, content",
+        choice3: "content, padding, border, margin",
+        choice4: "content, padding, margin, border",
+        answer: "content, padding, border, margin",
     },
 
     {
-        question: "Q4",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 1,
+        question: "Which of these is not a falsy value",
+        choice1: "0",
+        choice2: "-0",
+        choice3: "null",
+        choice4: "none",
+        answer: "none",
     },
 
     {
-        question: "Q5",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 2,
+        question: "Which of these is not a truthy value",
+        choice1: "1",
+        choice2: "false",
+        choice3: "none",
+        choice4: "NaN",
+        answer: "NaN",
     },
 
     {
-        question: "Q6",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 3,
+        question: "Which of these positions can be removed from normal flow?",
+        choice1: "Relative",
+        choice2: "Static",
+        choice3: "Flex",
+        choice4: "Sticky",
+        answer: "Sticky",
     },
 
     {
-        question: "Q7",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 4,
+        question: "Math.random() will generate a random __ within __",
+        choice1: "integer, 1-10",
+        choice2: "decimal, 0-1",
+        choice3: "fraction, 0-1",
+        choice4: "bug, your code",
+        answer: "decimal, 0-1",
     },
 
     {
-        question: "Q8",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 4,
+        question: "Choose incorrect answer: A while loop will end if___",
+        choice1: "Computer crashes",
+        choice2: "Condition becomes unsatisfied",
+        choice3: "Another loop runs within",
+        choice4: "The function returns a value",
+        answer: "Another loop runs within",
     },
 
-    {
-        question: "Q9",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 4,
-    },
 
 ]
+// Main function
 function startGame () {
     // Sets question pool to choose from
     var questionPool = questionArray
@@ -115,6 +110,7 @@ function startGame () {
     var indexQ = 0
     var remainTime = 60
 
+    // Timer Function
     function timer() {
         setInterval(function () {
 
@@ -130,9 +126,9 @@ function startGame () {
     }
 
     timer()
-
+  // Generate random question from pool
     function newQuestion() {
-        // Generate random question from pool
+      
         indexQ = Math.floor(Math.random()*questionPool.length);
         console.log("indexQ is "+indexQ)
         console.log("pool length is "+questionPool.length)
@@ -142,12 +138,12 @@ function startGame () {
         choiceText3.innerText = JSON.stringify(questionPool[indexQ].choice3)
         choiceText4.innerText = JSON.stringify(questionPool[indexQ].choice4)
 
-        // New question pool to avoid repetition
-        // questionPool = questionPool.splice(indexQ, 1)
+    
     }
     
     newQuestion()
 
+    // Check if finish conditions are met
     function checkFinish() {
         
         if (questionPool.length == 0 || remainTime==0) {
@@ -157,7 +153,7 @@ function startGame () {
 
     }
      
-
+    // Interactions after user selects an answer
     function checkAnswer(input){
         
         
@@ -199,7 +195,7 @@ function startGame () {
 
     }
 
-
+//  Eventlistners for option buttons
     choiceEvent1.addEventListener("click", function(){checkAnswer(choiceText1.innerText)})
     choiceEvent2.addEventListener("click", function(){checkAnswer(choiceText2.innerText)})
     choiceEvent3.addEventListener("click", function(){checkAnswer(choiceText3.innerText)})

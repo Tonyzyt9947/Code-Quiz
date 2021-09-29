@@ -1,3 +1,4 @@
+// Select variables
 var scoreText = document.getElementById("scoreText")
 var submit = document.getElementById("save")
 var initial = document.getElementById("username")
@@ -6,18 +7,15 @@ var highscore = JSON.parse(localStorage.getItem("highscore"))
 if (localStorage.getItem("highscore")==null) {
     highscore = []
 }
-console.log(highscore)
 
-console.log(recentScore)
-
+// Set score text
 scoreText.innerText = "Your Score: " + recentScore
 
-
+// Function for saving score via localstorage
 function saveScore() {
 
-    // event.preventDefault()
     
-    const score = {
+    var score = {
         name: initial.value,
         score: recentScore,
     }
@@ -32,6 +30,6 @@ function saveScore() {
     highscore.splice(5)
 
     localStorage.setItem("highscore", JSON.stringify(highscore))
-    
+
 
 }
