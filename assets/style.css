@@ -20,6 +20,7 @@ header a{
 }
 
 .container{
+    background-color: cyan;
     display: flex;
     position: relative;
     align-items: center;
@@ -44,7 +45,7 @@ main h1{
 
 }
 
-main p{
+main h3{
     display: inline-block;
     background-color: coral;
     font-size: 150%;
@@ -56,4 +57,52 @@ main a{
     display: inline-block;
     font-size: 200%;
     
+}
+
+main article{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border: lightgoldenrodyellow solid 5px;
+}
+
+main section{
+    display: flex;
+    min-width: 600px;
+    border: darkblue solid 10px;
+    flex-wrap: wrap;
+    height: 50%;
+
+
+}
+.choice-container{
+    /* display: inline-block; */
+    display: flex;
+    width: 100%;
+    text-align: center;
+    border: solid lightcyan 5px;
+    margin-bottom: 10px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 10%;
+    height: 20%;
+    align-items: center;
+
+}
+
+.choice-container:hover{
+    border-radius: 20%;
+    box-shadow: 5px 5px 10px black, -5px -5px 10px black;
+    transition: 0.2s;
+}
+
+h4{
+    float: left;
+    margin-left:5%;
+}
+
+@media screen and (max-width: 900px){
+    main section { min-width: 300px;
+
+    }
+
 }
