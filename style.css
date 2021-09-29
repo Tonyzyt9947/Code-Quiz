@@ -64,12 +64,18 @@ main article{
     width: 100%;
     text-align: center;
     border: lightgoldenrodyellow solid 5px;
+    font-size: 150%;
+}
+
+#question{
+    margin-bottom: 20px;
+
 }
 
 main section{
     display: flex;
     min-width: 600px;
-    border: darkblue solid 10px;
+    /* border: darkblue solid 10px; */
     flex-wrap: wrap;
     height: 50%;
 
@@ -105,6 +111,7 @@ aside {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 200%;
 
 }
 

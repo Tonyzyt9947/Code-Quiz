@@ -113,7 +113,15 @@ function startGame () {
     
     newQuestion()
 
+    function checkFinish() {
         
+        if (questionPool.length == 0) {
+            localStorage.setItem("Score", score)
+            return window.location.assign("form.html")
+            }
+
+    }
+     
 
     function checkAnswer(input){
         
@@ -132,11 +140,9 @@ function startGame () {
             // New question pool to avoid repetition
             questionPool.splice(indexQ, 1)
             console.log(questionPool)
-            setTimeout(function(){resultText.style.visibility="hidden"}, 2000)
+            setTimeout(function(){resultText.style.visibility="hidden"}, 2500)
+            checkFinish()
             newQuestion()
-            
-            
-            
             
         }
         else{
@@ -149,7 +155,8 @@ function startGame () {
             // console.log(questionPool.splice(indexQ, 0))
             questionPool.splice(indexQ, 1)
             console.log(questionPool)
-            setTimeout(function(){resultText.style.visibility="hidden"}, 2000)
+            setTimeout(function(){resultText.style.visibility="hidden"}, 2500)
+            checkFinish()
             newQuestion()
     
             
@@ -162,7 +169,6 @@ function startGame () {
     choiceEvent2.addEventListener("click", function(){checkAnswer(choiceText2.innerText)})
     choiceEvent3.addEventListener("click", function(){checkAnswer(choiceText3.innerText)})
     choiceEvent4.addEventListener("click", function(){checkAnswer(choiceText4.innerText)})
-
 
     
 
