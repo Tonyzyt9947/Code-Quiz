@@ -13,11 +13,11 @@ var resultText = document.getElementById("result")
 var questionArray = [
     {
         question: "Q0",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 1,
+        choice1: "a",
+        choice2: "b",
+        choice3: "c",
+        choice4: "d",
+        answer: "a",
     },
 
     {
@@ -31,20 +31,20 @@ var questionArray = [
 
     {
         question: "Q2",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 3,
+        choice1: "f",
+        choice2: "k",
+        choice3: "j",
+        choice4: "l",
+        answer: "j",
     },
 
     {
         question: "Q3",
-        choice1: 1,
-        choice2: 2,
-        choice3: 3,
-        choice4: 4,
-        answer: 4,
+        choice1: "dd",
+        choice2: "ff",
+        choice3: "ee",
+        choice4: "rr",
+        answer: "rr",
     },
 
     {
@@ -92,54 +92,79 @@ function startGame () {
 
     // Set initial score
     var score = 0
-    scoreText.innerText = score
-
-    
-
-    function checkAnswer(input){
-        if (input==JSON.stringify(questionPool[indexQ].answer)){
-            score = score + 10
-            resultText.innerText = "Correct"
-            newQuestion()
-        }
-        else{
-            score = score + 0
-            resultText.innerText = "Wrong"
-            newQuestion()
-        }
-
-    }
+    scoreText.innerText = "Score: "+score
 
     var indexQ = 0
+
     function newQuestion() {
         // Generate random question from pool
         indexQ = Math.floor(Math.random()*questionPool.length);
-        // console.log(indexQ)
+        console.log("indexQ is "+indexQ)
+        console.log("pool length is "+questionPool.length)
         questionText.innerText = JSON.stringify(questionPool[indexQ].question);
         choiceText1.innerText = JSON.stringify(questionPool[indexQ].choice1)
         choiceText2.innerText = JSON.stringify(questionPool[indexQ].choice2)
         choiceText3.innerText = JSON.stringify(questionPool[indexQ].choice3)
         choiceText4.innerText = JSON.stringify(questionPool[indexQ].choice4)
 
-
+        // New question pool to avoid repetition
+        // questionPool = questionPool.splice(indexQ, 1)
     }
     
     newQuestion()
 
+        
+
+    function checkAnswer(input){
+        
+        
+        
+        console.log(questionPool[indexQ].answer)
+
+        if (input==JSON.stringify(questionPool[indexQ].answer)){
+
+            score = score + 10
+            console.log("hh")
+            resultText.innerText = "Correct"
+            resultText.style.visibility="visible"
+            scoreText.innerText = "Score: "+score
+            // console.log(questionPool.splice(indexQ, 0))
+            // New question pool to avoid repetition
+            questionPool.splice(indexQ, 1)
+            console.log(questionPool)
+            setTimeout(function(){resultText.style.visibility="hidden"}, 2000)
+            newQuestion()
+            
+            
+            
+            
+        }
+        else{
+
+            score = score + 0
+            console.log("gg")
+            resultText.innerText = "Wrong"
+            resultText.style.visibility="visible"
+            scoreText.innerText = "Score: "+score
+            // console.log(questionPool.splice(indexQ, 0))
+            questionPool.splice(indexQ, 1)
+            console.log(questionPool)
+            setTimeout(function(){resultText.style.visibility="hidden"}, 2000)
+            newQuestion()
     
+            
+        }
 
-    console.log("answer is" + questionPool[indexQ].answer)
+    }
 
 
-    choiceEvent1.addEventListener("click", checkAnswer(choiceText1.innerText))
-    choiceEvent2.addEventListener("click", checkAnswer(choiceText2.innerText))
-    choiceEvent3.addEventListener("click", checkAnswer(choiceText3.innerText))
-    choiceEvent4.addEventListener("click", checkAnswer(choiceText4.innerText))
+    choiceEvent1.addEventListener("click", function(){checkAnswer(choiceText1.innerText)})
+    choiceEvent2.addEventListener("click", function(){checkAnswer(choiceText2.innerText)})
+    choiceEvent3.addEventListener("click", function(){checkAnswer(choiceText3.innerText)})
+    choiceEvent4.addEventListener("click", function(){checkAnswer(choiceText4.innerText)})
 
-    scoreText.innerText=score
 
-    // New question pool to avoid repetition
-    questionPool = questionPool.splice(indexQ, 1)
+    
 
     
 
